@@ -7,7 +7,7 @@ from django.views.generic.list import ListView
 from mainapp.redis_queue import sms_queue
 from mainapp.sms_handler import send_confirmation_sms
 from .models import Request, Volunteer, DistrictManager, Contributor, DistrictNeed, Person, RescueCamp, NGO, \
-    Announcements , districts, RequestUpdate, PrivateRescueCamp, CsvBulkUpload
+    Announcements , districts, RequestUpdate, PrivateRescueCamp, CsvBulkUpload, Healthcare
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import JsonResponse
 from django.http import HttpResponseRedirect
@@ -947,3 +947,21 @@ class CollectionCenterView(CreateView):
     model = CollectionCenter
     form_class = CollectionCenterForm
     success_url = '/collection_centers/'
+
+
+class DoctorcenterFilter(django_filters.FilterSet):
+    class Meta:
+        model = Healthcare
+        fields = [
+            'name',
+            'phone',
+            'age',
+            'gender',
+            'district',
+            'detaildoctor',
+        ]
+
+
+def healthcare_list(request):
+    f = DoctorcenterFilter(request.GET,queryset=Healthcare.objects.all())
+    
