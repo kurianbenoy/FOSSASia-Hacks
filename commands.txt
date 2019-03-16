@@ -1,0 +1,6 @@
+docker login
+docker tag django <reg>/django:v1
+
+docker push <reg>/django:v1
+update reference in your deployment yaml
+kubectl apply -f deployment.yaml

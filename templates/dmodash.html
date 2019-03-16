@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% load bootstrap3 %}
+
+<style>
+
+a.new{
+  pointer-events: none;
+
+  padding: 20px !important;
+  margin: 5px !important;
+  border: 2px solid #333333;
+  color: #333333;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  text-decoration: none;
+  width: 150px;
+  height: 230px;
+  vertical-align: top;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+}</style>
+
+<div class="container text-center">
+
+
+<p style="margin-bottom:20px;margin-top:50px;">
+  <strong style="font-size:  40px ;">Overall Stats </strong><br/>
+</p>
+
+<a href="#" class="home-button new card" role="button">
+  {% bootstrap_icon "bed" %}
+  <span class="text">
+    {{camp}}<br>
+    <span class="ml  notranslate">Camps</span>
+
+  </span>
+</a>
+
+<a href="#" class="home-button new card" role="button">
+  {% bootstrap_icon "user" %}
+  <span class="text">
+    {{people}}<br>
+    <span class="ml  notranslate">People</span>
+
+  </span>
+</a>
+<a href="#" class="home-button new card" role="button">
+  {% bootstrap_icon "user" %}
+  <span class="text">
+    {{male}}<br>
+    <span class="ml  notranslate">Male</span>
+
+  </span>
+</a>
+<a href="#" class="home-button new card" role="button">
+  {% bootstrap_icon "user" %}
+  <span class="text">
+    {{female}}<br>
+    <span class="ml  notranslate">Female</span>
+
+  </span>
+</a>
+<a href="" class="home-button new card" role="button">
+  {% bootstrap_icon "baby-formula" %}
+  <span class="text">
+    {{infant}}<br>
+    <span class="ml  notranslate">Infants</span>
+
+  </span>
+</a>
+<a href="" class="home-button new card" role="button">
+  {% bootstrap_icon "grain" %}
+  <span class="text">
+    {{medicine}}<br>
+    <span class="ml  notranslate">Medical Requirements</span>
+
+  </span>
+</a>
+
+
+    <p style="margin-bottom:20px;margin-top:50px;">
+</p>
+    <a href="{%url 'DMODist' %}" class="home-button card" role="button">
+      {% bootstrap_icon "user" %}
+      <span class="text">
+        View stats By district      </span>
+  </a>
+  <a href="{%url 'DMOTal' %}" class="home-button card" role="button">
+      {% bootstrap_icon "user" %}
+      <span class="text">
+        Views Stats By Taluk
+      </span>
+  </a>
+
+
+
+  <a href="{%url 'DMOInfo' %}" class="home-button card" role="button">
+    {% bootstrap_icon "search" %}
+    <span class="text">
+      Public data insights
+    </span>
+</a>
+
+
+
+</div>
+
+  {% endblock %}
