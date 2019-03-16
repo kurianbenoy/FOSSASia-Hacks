@@ -702,7 +702,7 @@ class Healthcare(models.Model):
             verbose_name = 'Healthcare: Request'
             verbose_name_plural = 'Healthcare:Requests'
 
-        def __str__(self):
-            return '#' + str(self.id) + ' ' + self.get_district_display() + ' ' + self.location
+    def __str__(self):
+        return '#' + str(self.id) + ' ' + self.get_district_display() + ' ' + self.location
 
 
