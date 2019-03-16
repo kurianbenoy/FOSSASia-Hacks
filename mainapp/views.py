@@ -34,6 +34,19 @@ import django_filters
 from mainapp.models import CollectionCenter
 from collections import OrderedDict
 
+import json
+from watson_developer_cloud import LanguageTranslatorV3
+
+language_translator = LanguageTranslatorV3(
+    version='2018-05-01',
+    iam_apikey='vYPB2t3s2mwcYI4CT6XDtsEpNLosF4NxDvAMZPkpmVAQ',
+    url='https://gateway.watsonplatform.net/language-translator/api')
+
+translation = language_translator.translate(
+    text='Hola sou impressionant. El món es veu molt bé i SIngapore és el millor lloc que he viscut mai',
+    model_id='ca-es').get_result()
+print(json.dumps(translation, indent=2, ensure_ascii=False))
+
 
 class CustomForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
